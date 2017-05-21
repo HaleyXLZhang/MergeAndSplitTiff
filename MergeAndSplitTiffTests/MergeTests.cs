@@ -13,19 +13,18 @@ namespace MergeAndSplitTiff.Tests
             string targetFile = @"C:\Users\li\Desktop\新建文件夹\target.tif";
             MergeTiff mergeTiff = new MergeTiff();
             DateTime time1 = System.DateTime.Now;
-            for (int i = 0; i < 10; i++)
-            {
-                mergeTiff.AppendToTiff(sourceFile, targetFile);
-            }
+
+            mergeTiff.AppendToTiffParallel(sourceFile, targetFile, 1);
+
             TimeSpan spendTime1 = System.DateTime.Now - time1;
-            string sourceFile2 = @"C:\Users\li\Desktop\新建文件夹\新建文件夹\source.tif";
-            string targetFile2 = @"C:\Users\li\Desktop\新建文件夹\新建文件夹\target.tif";
-            DateTime time2 = System.DateTime.Now;
-            for (int i = 0; i < 10; i++)
-            {
-                mergeTiff.AppendToTiffParallel(sourceFile2, targetFile2);
-            }
-            TimeSpan spendTime2 = System.DateTime.Now - time2;
+            //string sourceFile2 = @"C:\Users\li\Desktop\新建文件夹\新建文件夹\source.tif";
+            //string targetFile2 = @"C:\Users\li\Desktop\新建文件夹\新建文件夹\target.tif";
+            //DateTime time2 = System.DateTime.Now;
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    mergeTiff.AppendToTiffParallel(sourceFile2, targetFile2,1);
+            //}
+            //TimeSpan spendTime2 = System.DateTime.Now - time2;
         }
     }
 }
