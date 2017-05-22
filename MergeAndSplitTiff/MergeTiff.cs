@@ -239,13 +239,17 @@ namespace MergeAndSplitTiff
 
                     }
                     MergeTiffImagesWithLimitSize(clipsFiles, fileNameClip, compressEncoder, limitSize);
-                    outFile = outFile.Substring(0, outFile.LastIndexOf(".")) + "Part_0_" + outFile.Substring(outFile.LastIndexOf("."));
-
+                   
                     break;
                 }
 
             }
-  
+
+            if (!outFile.Contains("Part"))
+            {
+                outFile = outFile.Substring(0, outFile.LastIndexOf(".")) + "Part_0_" + outFile.Substring(outFile.LastIndexOf("."));
+            }
+
             //如果只有一个文件，直接复制到目标  
             if (imageFiles.Count == 1)
             {
